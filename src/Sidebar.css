@@ -1,0 +1,4 @@
+.sidebar {
+  margin-right: 10px;
+  flex: 0.2; /* 부모 요소의 범위에서 20%만 차지하라 */
+}
