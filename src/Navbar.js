@@ -1,17 +1,42 @@
-import { Avatar, Button } from '@material-ui/core';
+import React, { useState } from 'react';
+import './Navbar.css';
 import {
   AssessmentOutlined,
   BorderAllRounded,
+  ExpandMore,
   Home,
   Language,
+  Link,
   NotificationImportantOutlined,
   PeopleAltOutlined,
   Search,
 } from '@material-ui/icons';
-import React from 'react';
-import './Navbar.css';
+import { Avatar, Button, Input } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
+import db, { auth } from './firebase';
+import Modal from 'react-modal';
+import firebase from 'firebase';
 
 function Navbar() {
+  const user = useSelector(selectUser);
+  const [openModal, setOpenModal] = useState(false);
+  const [input, setInput] = useState('');
+  const [inputUrl, setInputUrl] = useState('');
+
+  const handleQuestion = (e) => {
+    e.preventDefault();
+    setOpenModal(false);
+    db.collection('questions').add({
+      question: input,
+      imageUrl: inputUrl,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      user: user,
+    });
+    setInput('');
+    setInputUrl('');
+  };
+
   return (
     <div className="navbar">
       <div className="qHeader_logo">
@@ -45,10 +70,73 @@ function Navbar() {
 
       <div className="qHeader_Rem">
         <div className="qHeader_avatar">
-          <Avatar />
+          <Avatar src={user.photo} onClick={() => auth()} />
         </div>
         <Language />
-        <Button>질문하기</Button>
+        <Button onClick={() => setOpenModal(true)}>질문하기</Button>
+
+        <Modal
+          isOpen={openModal}
+          onRequestClose={() => setOpenModal(false)}
+          shouldCloseOnOverlayClick={false}
+          style={{
+            overlay: {
+              width: 700,
+              height: 600,
+              backgroundColor: 'rgba(0,0,0,0.8)',
+              zIndex: '1000',
+              top: '50%',
+              left: '50%',
+              marginTop: '-300px',
+              marginLeft: '-350px',
+            },
+          }}
+        >
+          <div className="modal_title">
+            <h5> 질문 </h5>
+            <h5> 공유하기 </h5>
+          </div>
+          <div className="modal_info">
+            <Avatar src={user.photo} />
+            <p> 질문자 : {user.displayName ? user.displayName : user.email}</p>
+
+            <div className="modal_scope">
+              <PeopleAltOutlined />
+              <p> 전체공개 </p>
+              <ExpandMore />
+            </div>
+          </div>
+
+          <div className="modal_Field">
+            <Input
+              type="text"
+              placeholder="6하 원칙으로 질문을 작성하세요"
+              required // 내부에 꼭 값을 넣어줘라, 빈칸이면 오류가 뜸
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+
+            <div className="modal_fieldLink">
+              <Link />
+              <Input
+                type="text"
+                placeholder="url 링크만을 작성해 주세요"
+                value={inputUrl}
+                onChange={(e) => setInputUrl(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="modal_buttons">
+            <button type="text" className="add" onClick={handleQuestion}>
+              질문하기
+            </button>
+
+            <button onClick={() => setOpenModal(false)} className="can">
+              닫기
+            </button>
+          </div>
+        </Modal>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@
   width: 100%;
   position: static;
   top: 0;
-  z-index: 9999;
+  z-index: 999;
   box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.5);
 }
 .qHeader_logo > img {
@@ -81,4 +81,107 @@
 .qHeader_Rem > .MuiButton-root:hover {
   color: yellowgreen;
   background-color: black;
+}
+
+/* 모달 */
+
+.modal_title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  border-bottom: 1px solid lightgray;
+}
+
+.modal_title > h5 {
+  color: yellowgreen;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 30px;
+}
+
+.modal_title > h5:hover {
+  color: lightgoldenrodyellow;
+}
+
+.modal_info {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.modal_info > p {
+  margin-left: 10px;
+  font-size: small;
+  color: gray;
+}
+
+.modal_info > .modal_scope {
+  display: flex;
+  align-items: center;
+  color: yellowgreen;
+  padding: 5px;
+  margin-left: 10px;
+  background-color: white;
+  border-radius: 33px;
+  cursor: pointer;
+}
+
+.modal_Field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  flex: 1;
+}
+.modal_Field > .MuiInput-root {
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.modal_Field > .modal_fieldLink {
+  color: yellowgreen;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.modal_Field > .modal_fieldLink > .MuiInput-root {
+  flex: 1;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+}
+
+.modal_buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 260px;
+  margin-right: -20px;
+  border-top: 1px solid lightgray;
+}
+
+.modal_buttons > .can {
+  margin-left: auto;
+  border: none;
+  margin-top: 5px;
+  outline: none;
+  color: yellowgreen;
+  font-weight: 500;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 33px;
+  cursor: pointer;
+}
+
+.modal_buttons > .add {
+  border: none;
+  outline: none;
+  margin-top: 5px;
+  background-color: yellowgreen;
+  color: white;
+  font-weight: 700;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 33px;
+  cursor: pointer;
 }
