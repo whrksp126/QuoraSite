@@ -14,7 +14,15 @@ function QuoraBox() {
         <h5>{user.displayName}</h5>
       </div>
       <div className="quoraBox_quora">
-        <p>무엇이 궁금하신가요?</p>
+        <p>
+          기능 구현 항목
+          <br />
+          <br />
+          <span>
+            로그인, 로그아웃, 회원가입, 구글(로그인, 로그아웃, 회원 가입),
+            질문하기, 답변달기
+          </span>
+        </p>
       </div>
     </div>
   );

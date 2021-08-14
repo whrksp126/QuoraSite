@@ -39,7 +39,11 @@
 .quoraBox_quora > p {
   color: black;
   font-weight: bold;
-  font-size: large;
+  font-size: 15px;
 }
 
 /* 박스 안에 글짜 색 굵기 크기*/
+
+.quoraBox p span {
+  font-size: 12px;
+}

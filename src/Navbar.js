@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import {
-  AssessmentOutlined,
+  AssignmentIndOutlined,
   BorderAllRounded,
   ExpandMore,
   Home,
   Language,
   Link,
-  NotificationImportantOutlined,
+  NotificationsOutlined,
   PeopleAltOutlined,
   Search,
 } from '@material-ui/icons';
@@ -33,6 +33,7 @@ function Navbar() {
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       user: user,
     });
+
     setInput('');
     setInputUrl('');
   };
@@ -42,9 +43,10 @@ function Navbar() {
       <div className="qHeader_logo">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Quora_logo_2015.svg/2880px-Quora_logo_2015.svg.png"
-          alt="quroa logo"
+          alt=""
         />
       </div>
+
       <div className="qHeader_icons">
         <div className="qHeader_icon">
           <Home />
@@ -52,14 +54,16 @@ function Navbar() {
         <div className="qHeader_icon">
           <BorderAllRounded />
         </div>
+
         <div className="qHeader_icon">
-          <AssessmentOutlined />
+          <AssignmentIndOutlined />
         </div>
+
         <div className="qHeader_icon">
           <PeopleAltOutlined />
         </div>
         <div className="qHeader_icon">
-          <NotificationImportantOutlined />
+          <NotificationsOutlined />
         </div>
       </div>
 
@@ -70,10 +74,10 @@ function Navbar() {
 
       <div className="qHeader_Rem">
         <div className="qHeader_avatar">
-          <Avatar src={user.photo} onClick={() => auth()} />
+          <Avatar src={user.photo} onClick={() => auth.signOut()} />
         </div>
         <Language />
-        <Button onClick={() => setOpenModal(true)}>질문하기</Button>
+        <Button onClick={() => setOpenModal(true)}> 질문하기 </Button>
 
         <Modal
           isOpen={openModal}
@@ -111,7 +115,7 @@ function Navbar() {
             <Input
               type="text"
               placeholder="6하 원칙으로 질문을 작성하세요"
-              required // 내부에 꼭 값을 넣어줘라, 빈칸이면 오류가 뜸
+              required
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />
@@ -129,6 +133,7 @@ function Navbar() {
 
           <div className="modal_buttons">
             <button type="text" className="add" onClick={handleQuestion}>
+              {' '}
               질문하기
             </button>
 

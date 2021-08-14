@@ -10,8 +10,8 @@ function WidgetOptions() {
           alt="페페"
         />
         <div className="widget_contentTitle">
-          <h5>페페</h5>
-          <p>리액트가 재밋는 페페</p>
+          <h5>gh</h5>
+          <p>리액트를 이해 못한 나</p>
         </div>
       </div>
       <div className="widget_content">
@@ -20,8 +20,8 @@ function WidgetOptions() {
           alt="페페"
         />
         <div className="widget_contentTitle">
-          <h5>페페</h5>
-          <p>리액트가 재밋는 페페</p>
+          <h5>GH</h5>
+          <p>리액트가 어려운 나</p>
         </div>
       </div>
       <div className="widget_content">
@@ -30,8 +30,8 @@ function WidgetOptions() {
           alt="페페"
         />
         <div className="widget_contentTitle">
-          <h5>페페</h5>
-          <p>리액트가 재밋는 페페</p>
+          <h5>건호</h5>
+          <p>리액트를 이해한 나</p>
         </div>
       </div>
       <div className="widget_content">
@@ -40,8 +40,8 @@ function WidgetOptions() {
           alt="페페"
         />
         <div className="widget_contentTitle">
-          <h5>페페</h5>
-          <p>리액트가 재밋는 페페</p>
+          <h5>조건호</h5>
+          <p>리액트가 즐거운 나</p>
         </div>
       </div>
       <div className="widget_content">
@@ -50,8 +50,8 @@ function WidgetOptions() {
           alt="페페"
         />
         <div className="widget_contentTitle">
-          <h5>페페</h5>
-          <p>리액트가 재밋는 페페</p>
+          <h5>거노</h5>
+          <p>리액트가 신기한 나</p>
         </div>
       </div>
       <div className="widget_content">
@@ -60,8 +60,8 @@ function WidgetOptions() {
           alt="페페"
         />
         <div className="widget_contentTitle">
-          <h5>페페</h5>
-          <p>리액트가 재밋는 페페</p>
+          <h5>건이건건</h5>
+          <p>리액트가 흥미로운 나</p>
         </div>
       </div>
     </div>

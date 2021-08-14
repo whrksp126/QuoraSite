@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import Quora from './Quora';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser, login, logout } from './features/userSlice';
+import { login, logout, selectUser } from './features/userSlice';
 import Login from './Login';
 import { auth } from './firebase';
 

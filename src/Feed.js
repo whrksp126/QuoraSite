@@ -9,18 +9,14 @@ function Feed() {
 
   useEffect(() => {
     db.collection('questions')
-      .orderBy('timestamp', 'desc') // db 에서 데이터를 가져오는 순서, 서버의 작성시간 순서로 내림차순(최신이 위로)
-      .onSnapshot(
-        (
-          snapshot // 현재의 db 의 상태를 사진을 찍어서 가져온다
-        ) =>
-          setPosts(
-            snapshot.docs.map((doc) => ({
-              // 사진을 찍어둔 모든 데이터를 새로운 배열로 만들어서 포스트 안에 넣어준다
-              id: doc.id,
-              question: doc.data(),
-            }))
-          )
+      .orderBy('timestamp', 'desc')
+      .onSnapshot((snapshot) =>
+        setPosts(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            question: doc.data(),
+          }))
+        )
       );
   }, []);
 
